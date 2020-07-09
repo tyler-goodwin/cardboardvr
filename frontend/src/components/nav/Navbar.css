@@ -1,0 +1,24 @@
+nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav ul li {
+  padding-right: 16px;
+  display: inline-block;
+}
+
+.Nav_Link, .Nav_Link:visited {
+  color: #111;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.Nav_Link:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+.Nav_Link--active {
+  text-decoration: underline;
+}
