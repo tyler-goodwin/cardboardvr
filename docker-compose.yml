@@ -1,0 +1,42 @@
+version: "2"
+services:
+  loadbalancer:
+    image: nginx:1.19.0
+    volumes:
+      - "./config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - 8080:8080
+  backend:
+    build: backend
+    depends_on:
+      - db
+    volumes:
+      - "./backend:/usr/src/backend-app"
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: secret
+  frontend:
+    build: frontend
+    # React scripts exits if not run in interactive mode
+    stdin_open: true
+    depends_on:
+      - backend
+    volumes:
+      - "./frontend/:/usr/src/frontend-app"
+      - "./frontend/node_modules:/usr/src/frontend-app/node_modules"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+  db:
+    image: postgres:12.3
+    volumes:
+      - "database_data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      ALLOW_IP_RANGE: 0.0.0.0/0
+volumes:
+  database_data:
