@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Routes from '../../lib/Routes';
 import './Navbar.css';
 
@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <nav>
       <ul>
-        <Link route={Routes.home} label="Home" exact />
+        <Link route={Routes.home} label="VR Cardboard" exact />
         <Link route={Routes.new_order} label="New Order" />
       </ul>
     </nav>

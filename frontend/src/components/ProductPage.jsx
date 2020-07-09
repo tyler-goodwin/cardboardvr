@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
-function ProductList({ products }) {
-  return (
-    <div>
-      {products.map(product => <div key={product.type}>{product.type}: ${product.cost}</div>)}
-    </div>
-  )
-}
+import ProductList from './products/ProductList';
 
 export default function ProductPage({ apiClient }) {
   const [loading, setLoading] = useState(true);
@@ -32,7 +25,7 @@ export default function ProductPage({ apiClient }) {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div>{error.message}</div>;
   }
 
   return <ProductList products={products} />;
