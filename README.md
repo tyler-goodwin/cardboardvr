@@ -23,8 +23,8 @@ docker-compose down
 
 ## Assumptions
 I have made the following assumptions during development:
-1. Auth isn't required. If it was the devise gem would be my go to.
-2.
+1. Auth isn't required
+2. Whole dollar price amounts only supported
 
 ## Design Decisions
 

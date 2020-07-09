@@ -1,0 +1,57 @@
+require: rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.7
+  Include:
+    - '**/*.rb'
+    - 'config.ru'
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'Rakefile'
+
+  Exclude:
+    - 'app/views/**/*'
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'scripts/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - '.git/**/*'
+
+Rails:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Guardfile'
+
+Naming/FileName:
+  Exclude:
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'Rakefile'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 130
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/MethodLength:
+  Max: 25
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
