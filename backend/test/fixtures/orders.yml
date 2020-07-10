@@ -1,0 +1,4 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+order_one:
+  shipping_price: 30
+  total_price: 50
