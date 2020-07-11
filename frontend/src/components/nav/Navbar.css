@@ -4,14 +4,14 @@ nav ul {
 }
 
 nav ul li {
-  padding-right: 16px;
+  padding-right: 24px;
   display: inline-block;
 }
 
 .Nav_Link, .Nav_Link:visited {
   color: #111;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 .Nav_Link:hover {

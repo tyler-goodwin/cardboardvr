@@ -17,8 +17,9 @@ export default function Navbar() {
   return (
     <nav>
       <ul>
-        <Link route={Routes.home} label="VR Cardboard" exact />
+        <Link route={Routes.home} label="Products" exact />
         <Link route={Routes.new_order} label="New Order" />
+        <Link route={Routes.view_orders} label="View Orders" />
       </ul>
     </nav>
   );

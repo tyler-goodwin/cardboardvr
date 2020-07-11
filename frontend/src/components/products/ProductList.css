@@ -1,0 +1,9 @@
+.ProductList_Product {
+  display: flex;
+  border-bottom: solid 1px #DDD;
+  margin-bottom: 16px;
+}
+
+.ProductList_Name {
+  flex-grow: 1;
+}

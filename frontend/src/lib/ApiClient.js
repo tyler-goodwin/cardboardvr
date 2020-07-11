@@ -11,7 +11,10 @@ function buildPayload(orderItems) {
 export default class ApiClient {
   constructor() {
     this.client = axios.create({
-      baseURL: "/api/v1"
+      baseURL: "/api/v1",
+      headers: {
+        "CONTENT_TYPE": "application/json"
+      }
     })
   }
 
@@ -37,11 +40,19 @@ export default class ApiClient {
 
   async getOrderPrices(orderItems) {
     const payload = buildPayload(orderItems);
-    return await this.client.post("/orders", JSON.stringify(payload));
+    const res = await this.client.post("/orders/calculate-price", payload);
+    if (res.status !== 200) {
+      throw new Error(res.data.errors.join(","))
+    }
+    return res.data;
   }
 
   async createOrder(orderItems) {
     const payload = buildPayload(orderItems);
-    return await this.client.post("/orders", JSON.stringify(payload));
+    const res = await this.client.post("/orders", payload);
+    if (res.status !== 200) {
+      throw new Error(`${res.data.message}: ${res.data.errors.join(",")}`);
+    }
+    return res.data;
   }
 }
